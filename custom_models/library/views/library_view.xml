@@ -1,0 +1,45 @@
+<odoo>
+
+    <record id="library_tree_view" model="ir.ui.view">
+        <field name="name">library.tree.view</field>
+        <field name="model">library.tool</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="description"/>
+                <field name="company_id"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="library_form_view" model="ir.ui.view">
+        <field name="name">library.form.view</field>
+        <field name="model">library.tool</field>
+        <field name="arch" type="xml">
+            <form>
+                <group>
+                    <group>
+                        <field name="name"/>
+                        <field name="description"/>
+                        <field name="company_id"/>
+                    </group>
+                </group>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_library_model" model="ir.actions.act_window">
+        <field name="name">Library entries</field>
+        <field name="res_model">library.tool</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="menu_library" name="Library" />
+
+    <menuitem id="menu_library_models" parent="menu_library" name="Menu" />
+
+    <menuitem id="menu_library_model" parent="menu_library_models" action="action_library_model" />
+
+    <menuitem id="menu_create_report" parent="menu_library_models" action="action_create_report" />
+
+</odoo>
